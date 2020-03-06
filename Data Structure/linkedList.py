@@ -14,3 +14,6 @@ class LinkedList:
             self.head = new_node
             return
 
+llist = LinkedList()
+llist.append("A")
+llist.append('B')
