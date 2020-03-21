@@ -26,10 +26,18 @@ class LinkedList:
         while cur_node:
             print(cur_node.data)
             cur_node = cur_node.next
+
+    def prepend(self, data):
+
+        newNode = Node(data)
+
+        newNode.next = self.head
+        self.head = newNode
         
 
 
 llist = LinkedList()
 llist.append("A")
 llist.append('B')
+llist.prepend('E')
 llist.print_list()
