@@ -1,7 +1,7 @@
 class Node:
     def __init__(self, data):
         self.data = data
-        sef.next = None
+        self.next = None
 
 class LinkedList:
     def __init__(self):
@@ -13,6 +13,13 @@ class LinkedList:
         if self.head is None:
             self.head = new_node
             return
+
+        last_node = self.head
+        while last_node.next:
+            last_node = last_node.next
+        last_node.next = new_node
+        
+
 
 llist = LinkedList()
 llist.append("A")
