@@ -142,6 +142,20 @@ class LinkedList:
         curr_1.next, curr_2.next =  curr_2.next, curr_1.next
         print('cheguei aqui')
 
+    def reverse_iterative(self):
+
+        curr_node = self.head
+        prev = None
+
+        while curr_node:
+            next_node = curr_node.next
+            curr_node.next = prev
+
+            prev = curr_node
+            curr_node = next_node
+        
+        self.head = prev
+
 
 
 
@@ -156,7 +170,7 @@ llist.append('E')
 
 llist.print_list()
 print('vot')
-llist.swap_nodes("B", "E")
+llist.reverse_iterative()
 print('\n')
 
 
