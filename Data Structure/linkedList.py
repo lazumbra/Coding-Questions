@@ -104,6 +104,45 @@ class LinkedList:
             return 0
         return 1 + self.len_recursive(node.next)
 
+    def swap_nodes(self, key1, key2):
+
+        if key1 == key2:
+            return
+        
+        prev1 = None
+        curr_1 = self.head
+        while curr_1 and curr_1.data != key1:
+            prev1 = curr_1
+            curr_1 = curr_1.next
+
+        prev2 = None
+        curr_2 = self.head
+        while curr_2 and curr_2.data != key2:
+            prev2 = curr_2
+            curr_2 = curr_2.next
+        
+        #Checar se eu encontrei mesmo os valores
+        #Se um ou outro valor for None sair da função
+        #Pois não existe swap
+        if not curr_1 or not curr_2:
+            return
+        
+        #Alocar os ponteiros dos dois prev
+        if prev1:
+            prev1.next = curr_2
+        else:
+            self.head = curr_2
+
+        if prev2:
+            prev2.next = curr_1
+        else:
+            self.head = curr_1
+
+        #Alocar os current
+        curr_1.next, curr_2.next =  curr_2.next, curr_1.next
+        print('cheguei aqui')
+
+
 
 
 
@@ -113,13 +152,13 @@ llist.append("A")
 llist.append('B')
 llist.append('C')
 llist.append('D')
+llist.append('E')
 
-print(llist.len_recursive(llist.head))
-
-#llist.delete_node("B")
-#llist.delete_node_at_pos(1)
 llist.print_list()
+print('vot')
+llist.swap_nodes("B", "E")
 print('\n')
 
-llist.insert_after_node(llist.head.next, 'E')
+
 llist.print_list()
+print('terminei')
