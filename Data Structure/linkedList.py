@@ -156,8 +156,77 @@ class LinkedList:
         
         self.head = prev
 
+    def merge_sorted(self, llist):
 
+        p = self.head
+        q = llist.head
+        s = None
 
+        if not p:
+            return q
+        if not q:
+            return p
+        
+        if p.data < q.data:
+            s = p
+            p = p.next
+        else:
+            s = q
+            q = q.next
+        newhead = s
+
+        while q and p:
+            if p.data < q.data:
+                s.next = p
+                s = p
+                p = p.next
+            else:
+                s.next = q
+                s = q.next
+                s = q
+                q = q.next
+        
+        if not p:
+            s.next = q
+        else:
+            s.next = p
+
+        return newhead
+    
+    def remove_duplciates(self):
+        current_node = self.head
+        prev = None
+
+        prev_dict = dict()
+
+        while current_node:
+            if current_node.data in prev_dict:
+                prev.next = current_node.next
+                pass
+            else:
+                prev_dict[current_node.data] = 1
+                prev = current_node
+            current_node = current_node.next
+
+                
+llist_1 = LinkedList()
+
+llist_1.print_list()
+
+llist_1.append(1)
+llist_1.append(5)
+llist_1.append(5)
+llist_1.append(2)
+llist_1.append(3)
+llist_1.append(2)
+print('antes')
+llist_1.print_list()
+llist_1.remove_duplciates()
+
+print('depois')
+llist_1.print_list()
+
+print('terminou')
 
 
 
