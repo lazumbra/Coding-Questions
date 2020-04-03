@@ -208,18 +208,42 @@ class LinkedList:
                 prev = current_node
             current_node = current_node.next
 
+    def print_nth_from_last(self, n):
+
+        curr_node = self.head
+        count = 0
+        while curr_node:
+            count += 1
+            curr_node = curr_node.next
+        
+        if count == 0:
+            return
+        
+        print('ao menos cheguei aqui')
+        
+        curr_node = self.head
+        while curr_node:
+            if n == count:
+                return curr_node.data
+            curr_node = curr_node.next
+            count -= 1
+
+
+
                 
 llist_1 = LinkedList()
 
 llist_1.print_list()
 
-llist_1.append(1)
-llist_1.append(5)
-llist_1.append(5)
-llist_1.append(2)
-llist_1.append(3)
-llist_1.append(2)
-print('antes')
+llist_1.append('A')
+llist_1.append('B')
+llist_1.append('C')
+llist_1.append('D')
+
+print('vou entrar aqui')
+
+print('O valor é:', llist_1.print_nth_from_last(2))
+
 llist_1.print_list()
 llist_1.remove_duplciates()
 
