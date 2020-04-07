@@ -249,6 +249,18 @@ class LinkedList:
             q = q.next
         
         return p.data
+    
+    def count_occurences_iterative(self, data):
+        curr_ele = self.head
+        contador = 0
+        while curr_ele:
+            if curr_ele.data == data:
+                contador += 1
+            curr_ele = curr_ele.next
+
+        return contador 
+
+
 
 
                 
@@ -256,14 +268,17 @@ llist_1 = LinkedList()
 
 llist_1.print_list()
 
-llist_1.append('A')
-llist_1.append('B')
-llist_1.append('C')
-llist_1.append('D')
+llist_1.append(1)
+llist_1.append(2)
+llist_1.append(1)
+llist_1.append(3)
+llist_1.append(1)
+llist_1.append(4)
+
 
 print('vou entrar aqui')
 
-print('O valor é:', llist_1.print_nth_from_last_2(2))
+print('O valor é:', llist_1.count_occurences_iterative(1))
 
 llist_1.print_list()
 llist_1.remove_duplciates()
