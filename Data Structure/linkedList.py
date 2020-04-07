@@ -227,7 +227,28 @@ class LinkedList:
                 return curr_node.data
             curr_node = curr_node.next
             count -= 1
+        
+        if curr_node is None:
+            return
 
+    def print_nth_from_last_2(self, n):
+        p = self.head
+        q = self.head
+
+        count = 0
+
+        while q and count < n:
+            q = q.next
+            count += 1
+        
+        if not q:
+            print('n maior que o tamanho da lista')
+        
+        while p and q:
+            p = p.next
+            q = q.next
+        
+        return p.data
 
 
                 
@@ -242,7 +263,7 @@ llist_1.append('D')
 
 print('vou entrar aqui')
 
-print('O valor é:', llist_1.print_nth_from_last(2))
+print('O valor é:', llist_1.print_nth_from_last_2(2))
 
 llist_1.print_list()
 llist_1.remove_duplciates()
