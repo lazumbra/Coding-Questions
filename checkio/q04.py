@@ -2,20 +2,6 @@ from datetime import datetime
 
 """
 https://py.checkio.org/en/mission/convert-date/
-
-Olhar no chatgpt as várias formas de fazer essa questão e colocar aqui todas as formas possíveis.
-
-from datetime import datetime
-
-def convert_date(date: str) -> str:
-    try:
-        # Try to parse the date and format it in the desired format
-        return datetime.strptime(date, "%d/%m/%Y").strftime("%Y-%m-%d")
-    except ValueError:
-        # If parsing fails, return an error message
-        return "Error: Invalid date."
-
-
 """
 
 
