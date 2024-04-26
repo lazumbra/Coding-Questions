@@ -13,23 +13,6 @@ AED3 12 08 Casamento aproximado de padrões e a distância de edição
 
 
 def fuzzy_string_match(str1: str, str2: str, threshold: int) -> bool:
-    # If the lengths of the strings differ by more than the threshold, they can't be approximately equal
-    if abs(len(str1) - len(str2)) > threshold:
-        return False
-
-    # Pad the shorter string with spaces
-    str1 = str1.ljust(len(str2))
-    str2 = str2.ljust(len(str1))
-
-    # Count the number of character differences
-    differences = sum(ch1 != ch2 for ch1, ch2 in zip(str1, str2))
-
-    # Return True if the number of differences is less than or equal to the threshold
-    return differences <= threshold
-
-ou
-
-def fuzzy_string_match(str1: str, str2: str, threshold: int) -> bool:
     if abs(len(str1) - len(str2)) > threshold:
         return False
 
@@ -84,6 +67,18 @@ def fuzzy_string_match(str1: str, str2: str, threshold: int) -> bool:
 """
 
 
+def fuzzy_string_match_v2(str1: str, str2: str, threshold: int) -> bool:
+    if abs(len(str1) - len(str2) > threshold):
+        return False
+
+    str1 = str1.ljust(len(str2))
+    str2 = str2.ljust(len(str1))
+
+    differences = sum(c1 != c2 for c1, c2 in zip(str1, str2))
+
+    return differences <= threshold
+
+
 def fuzzy_string_match(str1: str, str2: str, threshold: int) -> bool:
 
     if abs(len(str1) - len(str2)) > threshold:
@@ -102,14 +97,16 @@ def fuzzy_string_match(str1: str, str2: str, threshold: int) -> bool:
 
 
 print("Example:")
-print(fuzzy_string_match("apple", "appel", 2))
+print(fuzzy_string_match_v2("apple", "appel", 2))
 
 # These "asserts" are used for self-checking
-assert fuzzy_string_match("apple", "appel", 2) == True
+assert fuzzy_string_match_v2("apple", "appel", 2) == True
 assert fuzzy_string_match("apple", "bpple", 1) == True
 assert fuzzy_string_match("apple", "bpple", 0) == False
-assert fuzzy_string_match("apple", "apples", 1) == True
+assert fuzzy_string_match_v2("apple", "apples", 1) == True
 assert fuzzy_string_match("apple", "bpples", 2) == True
-assert fuzzy_string_match("apple", "apxle", 1) == True
+assert fuzzy_string_match_v2("apple", "apxle", 1) == True
 assert fuzzy_string_match("apple", "pxxli", 3) == False
 assert fuzzy_string_match("fuzzy", "fuzy", 2) == True
+
+print("The mission is done! Click 'Check Solution' to earn rewards!")
