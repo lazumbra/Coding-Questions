@@ -1,17 +1,6 @@
 """
 
 https://py.checkio.org/en/mission/replace-all-occurrences/
-
-IMPORTANTE: Rresolver de forma mais explicita
-
-def replace_all(mainText: str, target: str, repl: str) -> str:
-    return mainText.replace(target, repl)
-
-def replace_all(mainText: str, target: str, repl: str) -> str:
-    words = mainText.split(target)
-    return repl.join(words)
-
-
 """
 
 

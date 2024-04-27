@@ -1,6 +1,5 @@
-def longest_word(s: str) -> str:
-    words = s.split()
-    if not words:
-        return ""
-    longest = max(words, key=len)
-    return longest
+def replace_all(mainText: str, target: str, repl: str) -> str:
+    return mainText.replace(target, repl)
+
+
+replace_all("OpenAI", "AI", "Source")
