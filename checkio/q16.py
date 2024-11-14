@@ -2,6 +2,8 @@
 
 https://py.checkio.org/en/mission/armstrong-number-checking/
 
+------------------------------------------------
+
 """
 
 
